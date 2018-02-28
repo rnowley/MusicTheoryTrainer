@@ -6,5 +6,6 @@
 </head>
 <body>
     <h1>Welcome to Music Theory Trainer</h1>
+    <a href="<c:url value="/noteidentification"/>">Note Identification</a>
 </body>
 </html>
