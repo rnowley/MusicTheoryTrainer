@@ -21,7 +21,8 @@ public class NoteIdentificationController {
     }
 
     @RequestMapping(value = "/question", method = RequestMethod.GET)
-    public String displayQuestion() {
+    public String displayQuestion(Model model) {
+        model.addAttribute("question", "c");
         return "question";
     }
 }

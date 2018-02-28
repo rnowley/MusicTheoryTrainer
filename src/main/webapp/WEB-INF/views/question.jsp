@@ -7,7 +7,7 @@
 </head>
 <body>
     <div id="questionDiv">
-        This is a question.
+        <c:out value="${question}" />
     </div>
 </body>
 </html>
