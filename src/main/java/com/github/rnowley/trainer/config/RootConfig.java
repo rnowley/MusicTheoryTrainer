@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.regex.Pattern;
 
 @Configuration
-@Import(DataConfig.class)
+@Import(JpaConfig.class)
 @ComponentScan(basePackages = {"com.github.rnowley.trainer"}, excludeFilters = {@ComponentScan.Filter(type = FilterType.CUSTOM, value = RootConfig.WebPackage.class)})
 public class RootConfig {
 
