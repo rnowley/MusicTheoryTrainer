@@ -2,11 +2,13 @@ package com.github.rnowley.trainer.domain;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Exercise {
 
-    private Exercise() {}
+    public Exercise() {}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +26,9 @@ public class Exercise {
     @Column
     private Date createdOn;
 
+    @OneToMany(mappedBy = "exercise")
+    private Set<Question> questions;
+
     public Exercise(Long id, int numberOfQuestions, int numberCorrect, boolean completed,
                     Date createdOn) {
         this.id = id;
@@ -31,6 +36,7 @@ public class Exercise {
         this.numberCorrect = numberCorrect;
         this.completed = completed;
         this.createdOn = createdOn;
+        this.questions = new HashSet<Question>();
     }
 
     public Long getId() {
@@ -67,5 +73,9 @@ public class Exercise {
 
     public void setCreatedOn(Date createdOn) {
         this.createdOn = createdOn;
+    }
+
+    public Set<Question> getQuestions() {
+        return questions;
     }
 }

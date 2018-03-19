@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Question {
 
-    private Question() {}
+    public Question() {}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,13 +18,13 @@ public class Question {
     private String answer;
 
     @Column
-    private String guess;
+    private Integer guess;
 
     @ManyToOne
-    @JoinColumn(name = "exercise")
+    @JoinColumn(name = "exerciseId", nullable = false)
     private Exercise exercise;
 
-    public Question(Long id, int questionNumber, String answer, String guess, Exercise exercise) {
+    public Question(Long id, int questionNumber, String answer, Integer guess, Exercise exercise) {
         this.id = id;
         this.questionNumber = questionNumber;
         this.answer = answer;
@@ -53,11 +53,11 @@ public class Question {
         this.answer = answer;
     }
 
-    public String getGuess() {
+    public Integer getGuess() {
         return guess;
     }
 
-    public void setGuess(String guess) {
+    public void setGuess(Integer guess) {
         this.guess = guess;
     }
 
